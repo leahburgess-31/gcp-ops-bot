@@ -51,8 +51,8 @@ If you add new functionality, make sure to test it thoroughly.
 
 You can optionally run:
 ```bash
-flake8 gcp_monitoring_bot.py
-black gcp_monitoring_bot.py
+flake8 main.py
+black main.py
 ```
 
 ---

@@ -62,8 +62,8 @@ Create a `.env` file using `.env.example`:
 GENAI_API_KEY=your_genai_api_key     # Optional if not using GenAI
 GCP_PROJECT_ID=your_project_id
 GCP_PROJECT_NUMBER=your_project_number
-GCP_REGION=us-central1
-GCP_ZONE=us-central1-a
+GCP_REGION=your_region_here
+GCP_ZONE=your_zone_here
 ```
 
 ---

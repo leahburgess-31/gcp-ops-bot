@@ -50,7 +50,6 @@ Visit the [Wiki](https://github.com/Retailogists/gcp-ops-bot/wiki) for detailed 
 
 - [Installation & Setup](https://github.com/Retailogists/gcp-ops-bot/wiki/Installation-&-Setup)
 - [Usage Guide with Examples](https://github.com/Retailogists/gcp-ops-bot/wiki/Usage-Guide)
-- [Authentication & Permissions](https://github.com/Retailogists/gcp-ops-bot/wiki/Authentication-&-Permissions)
 
 ---
 

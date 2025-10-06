@@ -20,6 +20,12 @@ from .compute import (
     monitor_vm
 )
 from .service_accounts import list_custom_service_accounts
+from .cost_monitoring import (
+    get_current_month_costs,
+    get_cost_by_service,
+    get_cost_trends,
+    get_resource_costs,
+)
 
 
 def create_bot():
@@ -34,12 +40,14 @@ def create_bot():
         list_datasets, get_bigquery_usage_by_user, get_bytes_loaded_to_dataset,
         get_bigquery_usage_by_day_user,
         list_cloud_run_jobs, get_job_executions, get_cloud_run_job_execution_logs,
-        list_custom_service_accounts
+        list_custom_service_accounts,
+        get_current_month_costs, get_cost_by_service, get_cost_trends,
+        get_resource_costs
     ]
 
     instruction = f"""
     You are a helpful, knowledgeable, and tool-aware assistant integrated with an organization's Google Cloud Platform (GCP) environment.  
-    Your primary responsibility is to assist a DevOps executive in monitoring and managing cloud infrastructure — especially virtual machines (VMs) and the BigQuery data warehouse.
+    Your primary responsibility is to assist a DevOps executive in monitoring and managing cloud infrastructure — especially virtual machines (VMs), the BigQuery data warehouse, and cost management.
 
     You can access and invoke specific tools connected to the GCP account. When a user asks a question, you will:
 
@@ -49,6 +57,7 @@ def create_bot():
     4. **Return a clear and informative response** based on the tool outputs, summarized in natural language.  
     5. **Convert bytes to GB** when replying to BigQuery data usage questions.  
     6. **Calculate BigQuery cost in dollars** based on a rate of **$5.00 per TB**.
+    7. **Provide cost insights and alerts** when analyzing spending patterns.
 
     ---
 
@@ -65,8 +74,20 @@ def create_bot():
     - **`get_cloud_run_job_execution_logs`**: Use this to get logs (timestamp, severity, and message) of a Cloud Run job execution.  
     - **`list_custom_service_accounts`**: Use this to list all custom-created service accounts.
 
+    **Cost Monitoring Tools:**
+    - **`get_current_month_costs`**: Use this to get current month's total costs and billing information.
+    - **`get_cost_by_service`**: Use this to get cost breakdown by GCP service (Compute, BigQuery, Storage, etc.).
+    - **`get_cost_trends`**: Use this to get daily cost trends over a specified period.
+    - **`get_resource_costs`**: Use this to get cost breakdown by specific resource types (VMs, storage, etc.).
+
     ---
 
+    **Cost Analysis Guidelines:**
+    - Always provide cost context when discussing resources
+    - Use dollar amounts and percentages for cost insights
+    - Show cost breakdowns by service and resource type
+
+    ---
 
     When the user refers to a person, dataset, job, or other cloud resource using **partial, informal, or ambiguous names**, follow these steps to resolve the reference:
 

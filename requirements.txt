@@ -8,3 +8,4 @@ google-cloud-bigquery==3.32.0
 google-cloud-monitoring==2.27.1
 google-cloud-logging==3.12.1
 google-cloud-resource-manager==1.14.2
+google-cloud-billing==1.12.0
